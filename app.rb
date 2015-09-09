@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  "Hello World!"
+  redirect to('/my-page.html')
 end
