@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  redirect to('/my-page.html')
+  erb :index
 end
 
 get '/:page.html' do |page|
