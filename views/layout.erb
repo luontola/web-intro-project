@@ -10,9 +10,9 @@
 
 <nav class="navigation">
     <ul>
-        <li><a href="/">Ruby</a></li>
-        <li><a href="/pictures.html">Pictures</a></li>
-        <li><a href="/story.html">Story</a></li>
+<% for page, title in pages %>
+        <li><a href="<%= (page == :index ? '/' : "/#{page}.html") %>"><%= title %></a></li>
+<% end %>
     </ul>
 </nav>
 
