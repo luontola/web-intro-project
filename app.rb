@@ -7,15 +7,20 @@ PAGES = {
 }
 
 get '/' do
-  erb :index, :locals => {:title => 'I\'m Ruby', :pages => PAGES}
+  render_page :index
 end
 
 get '/pictures.html' do
   picture_urls = Dir['public/pictures/**'].map { |path| path.sub('public', '') }
-  erb :pictures, :locals => {:picture_urls => picture_urls, :title => 'Lovely Pictures', :pages => PAGES}
+  render_page :pictures, {:picture_urls => picture_urls}
 end
 
 # must be last; this will be used if none of the above matches the request
 get '/:page.html' do |page|
-  erb page.to_sym, :locals => {:title => '???', :pages => PAGES}
+  render_page page.to_sym
+end
+
+def render_page(page, locals={})
+  locals = locals.merge({:title => PAGES[page], :pages => PAGES})
+  erb page.to_sym, :locals => locals
 end
