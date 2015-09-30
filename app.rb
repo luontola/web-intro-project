@@ -7,6 +7,8 @@ PAGES = {
   :guestbook => "Guestbook",
 }
 
+$comments = []
+
 get '/' do
   render_page :index
 end
@@ -17,19 +19,15 @@ get '/pictures.html' do
 end
 
 get '/guestbook.html' do
-  comments = IO.read('comments.txt') if File.exist?('comments.txt')
-  render_page :guestbook, {:comments => comments}
+  render_page :guestbook, {:comments => $comments}
 end
 
 post '/add-comment' do
-  File.open('comments.txt', 'a') do |f|
-    comment = erb :comment, :layout => false, :locals => {
-      :name => params['name'],
-      :comment => params['comment'],
-      :date => DateTime.now
-    }
-    f.puts(comment)
-  end
+  $comments << {
+    :name => params['name'],
+    :comment => params['comment'],
+    :date => DateTime.now
+  }
   redirect '/guestbook.html'
 end
 

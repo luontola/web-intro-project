@@ -10,4 +10,9 @@
     <br><button type="submit">Send</button>
 </form>
 
-<p><%= comments %></p>
+<% for comment in comments %>
+<p>
+  <span class="comment-author"><%= comment[:name] %> wrote on <%= comment[:date].strftime('%Y-%m-%d %H:%M') %>:</span>
+  <br><span class="comment-message"><%= comment[:comment] %></span>
+</p>
+<% end %>
