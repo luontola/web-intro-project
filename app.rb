@@ -23,7 +23,12 @@ end
 
 post '/add-comment' do
   File.open('comments.txt', 'a') do |f|
-    f.puts(params['name'] + ': ' + params['comment'])
+    comment = erb :comment, :layout => false, :locals => {
+      :name => params['name'],
+      :comment => params['comment'],
+      :date => DateTime.now
+    }
+    f.puts(comment)
   end
   redirect '/guestbook.html'
 end
