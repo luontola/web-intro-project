@@ -16,6 +16,11 @@ get '/pictures.html' do
   render_page :pictures, {:picture_urls => picture_urls}
 end
 
+get '/guestbook.html' do
+  comments = IO.read('comments.txt') if File.exist?('comments.txt')
+  render_page :guestbook, {:comments => comments}
+end
+
 post '/add-comment' do
   File.open('comments.txt', 'a') do |f|
     f.puts(params['name'] + ': ' + params['comment'])
