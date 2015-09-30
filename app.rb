@@ -16,6 +16,11 @@ get '/pictures.html' do
   render_page :pictures, {:picture_urls => picture_urls}
 end
 
+post '/add-comment' do
+  puts params
+  redirect '/guestbook.html'
+end
+
 get '/:page.html' do
   render_page params['page'].to_sym
 end
