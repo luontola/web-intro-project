@@ -16,6 +16,11 @@ get '/pictures.html' do
   render_page :pictures, {:picture_urls => picture_urls}
 end
 
+post '/add-comment' do
+  puts params
+  redirect '/guestbook.html'
+end
+
 # must be last; this will be used if none of the above matches the request
 get '/:page.html' do |page|
   render_page page.to_sym
