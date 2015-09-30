@@ -4,6 +4,7 @@ PAGES = {
   :index => "I'm Ruby",
   :pictures => "Lovely Pictures",
   :story => "My Story",
+  :guestbook => "Guestbook",
 }
 
 get '/' do
