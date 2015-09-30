@@ -57,3 +57,12 @@ h1 {
 .add-comment input, .add-comment textarea {
     width: 20em;
 }
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-message {
+    font-style: italic;
+    margin-left: 1em;
+}
