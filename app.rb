@@ -37,7 +37,11 @@ get '/pictures.html' do
 end
 
 get '/guestbook.html' do
-  render_page :guestbook, {:comments => Comment.all(:order => [:date.desc])}
+  render_page :guestbook, {
+    :comments => Comment.all(:order => [:date.desc]),
+    :total_comments => Comment.count,
+    :recent_comments => Comment.count(:date.gt => Time.now - (15 * 60))
+  }
 end
 
 post '/add-comment' do
