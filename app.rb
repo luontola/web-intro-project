@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'data_mapper'
 
 PAGES = {
   :index => "I'm Ruby",
@@ -8,6 +9,25 @@ PAGES = {
 }
 
 $comments = []
+
+
+DataMapper::Logger.new($stdout, :debug)
+DataMapper.setup(:default, 'sqlite:my-database.db')
+#DataMapper.setup(:default, 'sqlite::memory:')
+
+class Comment
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :name, String
+  property :comment, Text
+  property :date, DateTime
+end
+
+DataMapper.finalize
+#DataMapper.auto_migrate! # drops existing tables before recreating them
+DataMapper.auto_upgrade!
+
 
 get '/' do
   render_page :index
