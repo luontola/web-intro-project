@@ -48,6 +48,11 @@ post '/add-comment' do
     :comment => params['comment'],
     :date => DateTime.now
   }
+  Comment.create(
+    :name => params['name'],
+    :comment => params['comment'],
+    :date => DateTime.now
+  )
   redirect '/guestbook.html'
 end
 
