@@ -8,8 +8,6 @@ PAGES = {
   :guestbook => "Guestbook",
 }
 
-$comments = []
-
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, 'sqlite:my-database.db')
@@ -39,15 +37,10 @@ get '/pictures.html' do
 end
 
 get '/guestbook.html' do
-  render_page :guestbook, {:comments => $comments}
+  render_page :guestbook, {:comments => Comment.all(:order => [:date.desc])}
 end
 
 post '/add-comment' do
-  $comments << {
-    :name => params['name'],
-    :comment => params['comment'],
-    :date => DateTime.now
-  }
   Comment.create(
     :name => params['name'],
     :comment => params['comment'],
