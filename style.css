@@ -1,9 +1,16 @@
 .content {
     border: 1px solid Green;
+    min-height: 300px;
 }
 
 .navigation {
     border: 1px solid Blue;
+}
+
+@media screen and (min-width: 35.5em) { /* same as pure-u-sm  */
+    .navigation {
+        margin-top: 2em;
+    }
 }
 
 h1 {
