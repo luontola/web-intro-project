@@ -1,9 +1,18 @@
 .content {
     border: 1px solid Green;
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    width: 500px;
+    min-height: 300px;
 }
 
 .navigation {
     border: 1px solid Blue;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 140px;
 }
 
 h1 {
