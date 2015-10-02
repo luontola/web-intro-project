@@ -1,0 +1,9 @@
+h1 {
+    font-size: 30px;
+    color: #E0330C;
+}
+
+.profile-picture {
+    float: right;
+    border: 1px solid #E0330C;
+}
