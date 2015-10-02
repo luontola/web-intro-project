@@ -1,18 +1,39 @@
 .content {
-    border: 1px solid Green;
     position: absolute;
     top: 30px;
     left: 150px;
     width: 500px;
     min-height: 300px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #EEEEEE;
 }
 
 .navigation {
-    border: 1px solid Blue;
     position: absolute;
     top: 50px;
     left: 10px;
     width: 140px;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #E0330C;
+}
+
+.navigation a:hover {
+    color: #F09986;
 }
 
 h1 {
