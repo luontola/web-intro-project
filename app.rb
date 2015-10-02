@@ -1,5 +1,5 @@
 require 'sinatra'
 
-get '/hi' do
-  "Hello World!"
+get '/' do
+  redirect to('/about.html')
 end
