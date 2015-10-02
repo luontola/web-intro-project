@@ -1,12 +1,5 @@
 <h1>Pictures I like</h1>
 
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/50000/t2/cat-looking-up.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/30000/t2/cat-in-the-city-5.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/30000/t2/annoyed-cat.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/30000/t2/cat-in-the-city-2.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/50000/t2/cat-in-chair.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/30000/t2/cat-hunting.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/10000/t2/lieblingskater-44421287869401VYcy.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/60000/t2/cat-1382017414PaD.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/50000/t2/cat-1373445873hvw.jpg">
-<img class="album-photo" src="http://www.publicdomainpictures.net/pictures/40000/t2/cross-eyed-cat.jpg">
+<% for url in @picture_urls %>
+<img class="album-photo" src="<%= url %>">
+<% end %>
