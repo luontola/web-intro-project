@@ -5,7 +5,5 @@ get '/' do
 end
 
 get '/:page.html' do
-  IO.read('views/layout-top.html') +
-  IO.read('views/' + params['page'] + '.html') +
-  IO.read('views/layout-bottom.html')
+  erb params['page'].to_sym
 end
