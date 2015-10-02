@@ -45,3 +45,11 @@ h1 {
     float: right;
     border: 1px solid #E0330C;
 }
+
+.album-photo {
+    margin: 3px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    background-color:  #FFFFFF;
+    box-shadow: 3px 5px 8px #BBBBBB;
+}
