@@ -4,10 +4,8 @@ get '/' do
   redirect to('/my-page.html')
 end
 
-get '/foo' do
-  IO.read('public/my-page.html')
-end
-
-get '/:page' do
-  "You're on page " + params['page']
+get '/:page.html' do
+  IO.read('views/layout-top.html') +
+  IO.read('views/' + params['page'] + '.html') +
+  IO.read('views/layout-bottom.html')
 end
