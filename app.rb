@@ -2,10 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
-  redirect to('/about.html')
-end
-
-get '/about.html' do
   backstreet_boys = ["A.J.", "Howie", "Nick", "Kevin", "Brian"]
   @who_i_marry = backstreet_boys.sample
   erb :about
