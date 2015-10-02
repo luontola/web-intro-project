@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-get '/hi' do
-  "Hello World!"
+get '/' do
+  redirect to('/about.html')
 end
