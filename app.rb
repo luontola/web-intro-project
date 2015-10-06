@@ -12,3 +12,7 @@ get '/pictures.html' do
   @picture_urls = Dir.glob('public/pictures/**').map { |path| path.sub('public', '') }
   erb :pictures
 end
+
+get '/pictures/:picture.html' do
+  "Here will be a page for " + params['picture']
+end
