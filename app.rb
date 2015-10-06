@@ -14,5 +14,7 @@ get '/pictures.html' do
 end
 
 get '/pictures/:picture.html' do
-  "Here will be a page for " + params['picture']
+  @title = "Picture"
+  @picture_url = params['picture'] + '.jpg'
+  erb :picture
 end
