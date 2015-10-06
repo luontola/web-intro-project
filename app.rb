@@ -15,8 +15,12 @@ end
 
 get '/pictures/:picture.html' do
   @title = "Picture"
-  @picture_url = find_picture_url(params['picture'])
+  @picture_url = find_picture_url(params['picture']) or halt 404
   erb :picture
+end
+
+not_found do
+  "Page Not Found"
 end
 
 def picture_urls
