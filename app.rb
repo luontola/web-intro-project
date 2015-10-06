@@ -9,12 +9,20 @@ end
 
 get '/pictures.html' do
   @title = "Lovely Pictures"
-  @picture_urls = Dir.glob('public/pictures/**').map { |path| path.sub('public', '') }
+  @picture_urls = picture_urls
   erb :pictures
 end
 
 get '/pictures/:picture.html' do
   @title = "Picture"
-  @picture_url = params['picture'] + '.jpg'
+  @picture_url = find_picture_url(params['picture'])
   erb :picture
+end
+
+def picture_urls
+  Dir.glob('public/pictures/**').map { |path| path.sub('public', '') }
+end
+
+def find_picture_url(basename)
+  picture_urls.select { |path| File.basename(path, '.*') == basename }.first
 end
