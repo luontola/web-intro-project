@@ -47,3 +47,7 @@ h1 {
     background-color:  #FFFFFF;
     box-shadow: 3px 5px 8px #BBBBBB;
 }
+
+.full-photo {
+    width: 100%;
+}
