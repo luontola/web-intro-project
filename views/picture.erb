@@ -1,3 +1,14 @@
 <img class="full-photo" src="<%= @picture_url %>">
 
 <p><a href="/pictures.html">Return to album</a></p>
+
+<h2>Comments</h2>
+
+<form action="/add-comment" method="post" class="add-comment">
+    <input type="hidden" name="picture" value="<%= @picture %>">
+    <label for="author">Name</label>
+    <br><input type="text" name="author">
+    <br><label for="message">Comment</label>
+    <br><textarea type="text" name="message"></textarea>
+    <br><button type="submit">Add Comment</button>
+</form>

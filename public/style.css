@@ -58,3 +58,11 @@ h1 {
 .full-photo {
     width: 100%;
 }
+
+.add-comment input, .add-comment textarea {
+    width: 40ch;
+}
+
+.add-comment textarea {
+    height: 3em;
+}
