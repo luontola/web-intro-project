@@ -55,6 +55,13 @@ h1 {
     box-shadow: 3px 5px 8px #BBBBBB;
 }
 
+.album-caption {
+    float: left;
+    text-align: center;
+    padding-bottom: 0.5em;
+    font-size: 80%;
+}
+
 .full-photo {
     width: 100%;
 }
