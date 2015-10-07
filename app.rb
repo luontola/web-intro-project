@@ -1,5 +1,24 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'data_mapper'
+
+DataMapper::Logger.new($stdout, :debug)
+DataMapper.setup(:default, 'sqlite:my-database.db')
+#DataMapper.setup(:default, 'sqlite::memory:')
+
+class Comment
+  include DataMapper::Resource
+
+  property :id, Serial
+  property :picture, String
+  property :author, String
+  property :message, Text
+  property :added, DateTime
+end
+
+DataMapper.finalize
+#DataMapper.auto_migrate! # drops existing tables before recreating them
+DataMapper.auto_upgrade!
 
 $comments = []
 
