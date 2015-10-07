@@ -4,7 +4,11 @@
 
 <h2>Comments</h2>
 
-<p><%= @comments %></p>
+<% for comment in @comments %>
+<p><span class="comment-author"><%= comment[:author] %>
+  wrote on <%= comment[:added].strftime('%Y-%m-%d %H:%M:%S') %></span>
+<br><span class="comment-message"><%= comment[:message] %></span></p>
+<% end %>
 
 <form action="/add-comment" method="post" class="add-comment">
     <input type="hidden" name="picture" value="<%= @picture %>">
