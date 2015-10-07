@@ -1,10 +1,10 @@
 <h1>Pictures I like</h1>
 
 <div class="album">
-<% for url in @picture_urls %>
+<% for picture in @pictures %>
     <div class="album-caption">
-        <a href="<%= url.sub(/\.\w+$/, '.html') %>"><img class="album-photo" src="<%= url %>"></a>
-        <br>0 comments
+        <a href="<%= picture[:page_url] %>"><img class="album-photo" src="<%= picture[:picture_url] %>"></a>
+        <br><%= picture[:comments] %> comments
     </div>
 <% end %>
 </div>
