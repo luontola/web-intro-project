@@ -1,5 +1,7 @@
 require 'sinatra'
 
+$comments = []
+
 get '/' do
   @title = "I'm Ruby"
   backstreet_boys = ["A.J.", "Howie", "Nick", "Kevin", "Brian"]
@@ -17,15 +19,17 @@ get '/pictures/:picture.html' do
   @title = "Picture"
   @picture = params['picture']
   @picture_url = find_picture_url(params['picture']) or halt 404
-  comments_file = 'comments_' + params['picture'] + '.txt'
-  @comments = IO.read(comments_file) if File.exist?(comments_file)
+  @comments = $comments.select { |comment| comment[:picture] == params['picture'] }
   erb :picture
 end
 
 post '/add-comment' do
-  File.open('comments_' + params['picture'] + '.txt', 'a') do |f|
-    f.puts(params['author'] + ': ' + params['message'])
-  end
+  $comments << {
+    :picture => params['picture'],
+    :author => params['author'],
+    :message => params['message'],
+    :added => DateTime.now
+  }
   redirect '/pictures/' + params['picture'] + '.html'
 end
 
