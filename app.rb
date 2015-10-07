@@ -28,7 +28,11 @@ end
 
 get '/pictures.html' do
   @title = "Lovely Pictures"
-  @picture_urls = picture_urls
+  @pictures = picture_urls.map { |url| {
+    :picture_url => url,
+    :page_url => url.sub(/\.\w+$/, '.html'),
+    :comments => Comment.count(:picture => File.basename(url, '.*'))
+  }}
   erb :pictures
 end
 
