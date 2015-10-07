@@ -44,6 +44,12 @@ get '/pictures/:picture.html' do
 end
 
 post '/add-comment' do
+  Comment.create(
+    :picture => params['picture'],
+    :author => params['author'],
+    :message => params['message'],
+    :added => DateTime.now
+  )
   $comments << {
     :picture => params['picture'],
     :author => params['author'],
