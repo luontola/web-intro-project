@@ -4,6 +4,8 @@
 
 <h2>Comments</h2>
 
+<p><%= @comments %></p>
+
 <form action="/add-comment" method="post" class="add-comment">
     <input type="hidden" name="picture" value="<%= @picture %>">
     <label for="author">Name</label>

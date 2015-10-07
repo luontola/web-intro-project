@@ -17,6 +17,8 @@ get '/pictures/:picture.html' do
   @title = "Picture"
   @picture = params['picture']
   @picture_url = find_picture_url(params['picture']) or halt 404
+  comments_file = 'comments_' + params['picture'] + '.txt'
+  @comments = IO.read(comments_file) if File.exist?(comments_file)
   erb :picture
 end
 
