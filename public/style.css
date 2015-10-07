@@ -39,6 +39,17 @@ h1 {
     border: 1px solid #E0330C;
 }
 
+.album {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.album-caption {
+    text-align: center;
+    padding-bottom: 0.5em;
+    font-size: 80%;
+}
+
 .album-photo {
     height: 150px;
     margin: 3px;
