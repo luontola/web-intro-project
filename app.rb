@@ -20,6 +20,11 @@ get '/pictures/:picture.html' do
   erb :picture
 end
 
+post '/add-comment' do
+  puts params
+  redirect '/pictures/' + params['picture'] + '.html'
+end
+
 not_found do
   "Page Not Found"
 end
