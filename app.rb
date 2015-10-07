@@ -21,7 +21,9 @@ get '/pictures/:picture.html' do
 end
 
 post '/add-comment' do
-  puts params
+  File.open('comments_' + params['picture'] + '.txt', 'a') do |f|
+    f.puts(params['author'] + ': ' + params['message'])
+  end
   redirect '/pictures/' + params['picture'] + '.html'
 end
 
