@@ -19,8 +19,6 @@ DataMapper.finalize
 #DataMapper.auto_migrate! # drops existing tables before recreating them
 DataMapper.auto_upgrade!
 
-$comments = []
-
 get '/' do
   @title = "I'm Ruby"
   backstreet_boys = ["A.J.", "Howie", "Nick", "Kevin", "Brian"]
@@ -38,7 +36,7 @@ get '/pictures/:picture.html' do
   @title = "Picture"
   @picture = params['picture']
   @picture_url = find_picture_url(params['picture']) or halt 404
-  @comments = $comments.select { |comment| comment[:picture] == params['picture'] }
+  @comments = Comment.all(:picture => params['picture'], :order => [:added.asc])
   erb :picture
 end
 
@@ -49,12 +47,6 @@ post '/add-comment' do
     :message => params['message'],
     :added => DateTime.now
   )
-  $comments << {
-    :picture => params['picture'],
-    :author => params['author'],
-    :message => params['message'],
-    :added => DateTime.now
-  }
   redirect '/pictures/' + params['picture'] + '.html'
 end
 
