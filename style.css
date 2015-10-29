@@ -1,3 +1,11 @@
+.content {
+    border: 1px solid Green;
+}
+
+.navigation {
+    border: 1px solid Blue;
+}
+
 h1 {
     font-size: 30px;
     color: #E0330C;
