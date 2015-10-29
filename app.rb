@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'data_mapper'
+require 'erubis'
+
+set :erb, :escape_html => true
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, 'sqlite:my-database.db')
